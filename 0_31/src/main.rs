@@ -100,7 +100,8 @@ impl DragDropDemo {
                 .min_size(egui::vec2(80.0, 40.0));
 
             ui.add(button)
-        }).response
+        })
+        .response
     }
 
     fn show_context_menu(&self, response: egui::Response, index: usize) -> Option<ContextAction> {

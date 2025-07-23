@@ -1,4 +1,5 @@
 use eframe::egui;
+use egui::Memory;
 
 #[derive(Debug)]
 enum ContextAction {
@@ -68,7 +69,7 @@ impl DragDropDemo {
                     }
 
                     // Add context menu
-                    if let Some(action) = self.show_context_menu(response, index) {
+                    if let Some(action) = self.show_context_menu(ctx, response, index) {
                         context_action = Some(action);
                     }
                 }
@@ -100,10 +101,16 @@ impl DragDropDemo {
                 .min_size(egui::vec2(80.0, 40.0));
 
             ui.add(button)
-        }).response
+        })
+        .response
     }
 
-    fn show_context_menu(&self, response: egui::Response, index: usize) -> Option<ContextAction> {
+    fn show_context_menu(
+        &self,
+        ctx: &egui::Context,
+        response: egui::Response,
+        index: usize,
+    ) -> Option<ContextAction> {
         let mut action = None;
 
         response.context_menu(|ui| {
