@@ -7,4 +7,4 @@ Both show how to create elements that can be dragged and dropped.
 this demo mostly to figure that out, but also because it could be useful for
 others.
 
-[demo.gif]
+![demo gif](demo.gif)
