@@ -3,4 +3,5 @@
 /0_32/target/
 /0_32/Cargo.lock
 
+.idea
 /target
