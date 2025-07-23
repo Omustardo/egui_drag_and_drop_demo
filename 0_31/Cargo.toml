@@ -1,0 +1,12 @@
+[package]
+name = "demo31"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+egui = { version = "0.31" }
+eframe = { version = "0.31", default-features = false, features = [
+    "glow", # Use the glow rendering backend. Alternative: "wgpu".
+    "wayland", # To support Linux (and CI)
+    "x11", # To support older Linux distributions (restores one of the default features)
+] }
