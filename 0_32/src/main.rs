@@ -69,7 +69,7 @@ impl DragDropDemo {
                     }
 
                     // Add context menu
-                    if let Some(action) = self.show_context_menu(ctx, response, index) {
+                    if let Some(action) = self.show_context_menu(response, index) {
                         context_action = Some(action);
                     }
                 }
@@ -107,7 +107,6 @@ impl DragDropDemo {
 
     fn show_context_menu(
         &self,
-        ctx: &egui::Context,
         response: egui::Response,
         index: usize,
     ) -> Option<ContextAction> {
