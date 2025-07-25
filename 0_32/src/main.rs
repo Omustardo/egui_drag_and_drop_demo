@@ -1,5 +1,4 @@
 use eframe::egui;
-use egui::Memory;
 
 #[derive(Debug)]
 enum ContextAction {
@@ -102,7 +101,7 @@ impl DragDropDemo {
 
             ui.add(button)
         })
-        .response
+            .response
     }
 
     fn show_context_menu(
@@ -119,22 +118,18 @@ impl DragDropDemo {
 
             if ui.button("Change Color").clicked() {
                 action = Some(ContextAction::ChangeColor(index));
-                ui.close();
             }
 
             if ui.button("Rename").clicked() {
                 action = Some(ContextAction::Rename(index));
-                ui.close();
             }
 
             if ui.button("Duplicate").clicked() {
                 action = Some(ContextAction::Duplicate(index));
-                ui.close();
             }
 
             if ui.button("Delete").clicked() {
                 action = Some(ContextAction::Delete(index));
-                ui.close();
             }
         });
 
