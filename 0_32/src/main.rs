@@ -1,4 +1,5 @@
 use eframe::egui;
+use egui::Sense;
 
 #[derive(Debug)]
 enum ContextAction {
@@ -111,7 +112,9 @@ impl DragDropDemo {
     ) -> Option<ContextAction> {
         let mut action = None;
 
-        response.context_menu(|ui| {
+        // The context_menu requires click sense to be opened on right-click. The response is
+        // from a dnd_drag_source which internally only sets Sense::drag. So click needs to be added here.
+        response.interact(Sense::click()).context_menu(|ui| {
             let item = &self.items[index];
             ui.label(format!("Item: {}", item.name));
             ui.separator();

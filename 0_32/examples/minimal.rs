@@ -1,4 +1,5 @@
 use eframe::egui;
+use egui::Sense;
 
 #[derive(Debug)]
 pub struct MinimalDemo {
@@ -32,8 +33,10 @@ impl MinimalDemo {
                 ui.button("Right-click me for context menu!")
             }).response;
 
-            // Try to show context menu
-            response.context_menu(|ui| {
+            // Try to show context menu.
+            // The context_menu requires click sense to be opened on right-click. The response is
+            // from a dnd_drag_source which internally only sets Sense::drag. So click needs to be added here.
+            response.interact(Sense::click()).context_menu(|ui| {
                 ui.label("Context Menu Works!");
                 ui.separator();
 
